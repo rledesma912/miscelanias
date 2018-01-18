@@ -1,0 +1,33 @@
+<p>
+  clases works!
+</p>
+
+<div [ngClass]="alerta" class="alert" role="alert">
+  <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+</div>
+
+<button class="btn btn-info" type="button" (click)="alerta = 'alert-info'">Info</button>
+<button class="btn btn-success" type="button" (click)="alerta = 'alert-success'">Success</button>
+
+<h3 [ngClass]="{'text-danger': propiedades.danger, 'text-info': !propiedades.danger }">
+  Alerta mundo gentile
+</h3>
+
+<button type="button" class="btn"
+    (click)="propiedades.danger = !propiedades.danger"
+    [ngClass]=" { 'btn-danger': propiedades.danger, 'btn-success' : propiedades.danger }">
+    Cambiar
+</button>
+
+<hr>
+
+<button type="button"
+        class="btn btn-info"
+        (click)="ejecutar()"
+        [disabled]="cargando">
+
+  <i class="fa fa-refresh fa-spin"
+  [ngClass]="{'fa-refresh fa-spin': cargando, 'fa-save': !cargando }"></i>
+    <span *ngIf="cargando">Procesando datos</span>
+    <span *ngIf="!cargando">Guardar cambios</span>
+</button>
